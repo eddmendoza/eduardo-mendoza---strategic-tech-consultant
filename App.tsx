@@ -8,6 +8,7 @@ import AIInsight from './components/AIInsight';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import ReactMarkdown from 'react-markdown';
 
 const AppContent: React.FC = () => {
   const [activePostId, setActivePostId] = useState<string | null>(null);
@@ -71,8 +72,8 @@ const AppContent: React.FC = () => {
 
                   {/* Cuerpo del artículo con formato respetado */}
                   <div className="prose prose-slate lg:prose-xl max-w-none">
-                    <div className="whitespace-pre-wrap text-slate-700 leading-relaxed font-serif text-lg md:text-xl">
-                      {post.fullContent}
+                    <div className="text-slate-700 leading-relaxed font-serif text-lg md:text-xl">
+                      <ReactMarkdown>{post.fullContent}</ReactMarkdown>
                     </div>
                   </div>
                   
