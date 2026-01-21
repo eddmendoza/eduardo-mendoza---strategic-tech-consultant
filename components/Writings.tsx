@@ -3,7 +3,12 @@ import { SectionId } from '../types';
 import { ArrowRightIcon } from './Icons';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const Writings: React.FC = () => {
+// 1. Definimos que este componente ahora recibe la función para abrir posts
+interface WritingsProps {
+  onPostClick?: (id: string) => void;
+}
+
+const Writings: React.FC<WritingsProps> = ({ onPostClick }) => {
   const { t } = useLanguage();
 
   return (
@@ -18,7 +23,7 @@ const Writings: React.FC = () => {
               {t.writings.heading}
             </h3>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-900 hover:text-slate-600 transition-colors">
+          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-900 hover:text-slate-600 transition-colors">
             {t.writings.viewLinkedIn} <ArrowRightIcon className="w-4 h-4" />
           </a>
         </div>
@@ -37,15 +42,20 @@ const Writings: React.FC = () => {
               <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
                 {post.excerpt}
               </p>
-              <a href={post.link} className="text-sm font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-all">
+              
+              {/* 2. Cambiamos el link por un botón que activa la navegación interna */}
+              <button 
+                onClick={() => onPostClick && onPostClick(post.id)}
+                className="text-left text-sm font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-all"
+              >
                 {t.writings.readArticle}
-              </a>
+              </button>
             </article>
           ))}
         </div>
         
         <div className="mt-8 md:hidden text-center">
-            <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
+            <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
                 {t.writings.viewLinkedIn} <ArrowRightIcon className="w-4 h-4" />
             </a>
         </div>
