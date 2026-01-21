@@ -7,59 +7,100 @@ import Writings from './components/Writings';
 import AIInsight from './components/AIInsight';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-const App: React.FC = () => {
-  // Estado para manejar qué artículo estamos leyendo. null = Home.
+const AppContent: React.FC = () => {
   const [activePostId, setActivePostId] = useState<string | null>(null);
+  const { t } = useLanguage();
 
-  // Volver al inicio al cambiar de página
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activePostId]);
 
   return (
-    <LanguageProvider>
-      <main className="font-sans antialiased text-slate-900 bg-white min-h-screen flex flex-col">
-        <Navbar onHomeClick={() => setActivePostId(null)} />
-        
-        {activePostId === null ? (
-          // VISTA PRINCIPAL
-          <>
-            <Hero />
-            <Pillars />
-            <About />
-            {/* Pasamos la función para abrir el post */}
-            <Writings onPostClick={(id) => setActivePostId(id)} />
-            <AIInsight />
-            <Contact />
-          </>
-        ) : (
-          // VISTA DEL ARTÍCULO (La crearemos a continuación)
-          <div className="flex-grow pt-24 pb-12">
-             <div className="max-w-3xl mx-auto px-6">
-               <button 
-                 onClick={() => setActivePostId(null)}
-                 className="mb-8 text-blue-600 hover:text-blue-800 flex items-center gap-2 transition-colors"
-               >
-                 ← Back to Home
-               </button>
-               {/* Aquí inyectaremos el contenido del post según el activePostId */}
-               <article className="prose lg:prose-xl">
-                  <h1 className="text-4xl font-bold mb-4">2025: The Year AI Exposed the Foundations</h1>
-                  <img src="/postimgs/leadetship_outlook_2025.png" alt="AI Outlook" className="w-full rounded-xl mb-8" />
-                  <div className="text-lg leading-relaxed text-slate-700">
-                    {/* El contenido que me pasaste iría aquí */}
-                    <p>In hindsight, 2025 will be remembered as the year artificial intelligence stopped being a feature and became infrastructure...</p>
-                    {/* Más adelante automatizaremos que este texto venga de content.ts */}
+    <main className="font-sans antialiased text-slate-900 bg-white min-h-screen flex flex-col">
+      <Navbar onHomeClick={() => setActivePostId(null)} />
+      
+      {activePostId === null ? (
+        <>
+          <Hero />
+          <Pillars />
+          <About />
+          <Writings onPostClick={(id) => setActivePostId(id)} />
+          <AIInsight />
+          <Contact />
+        </>
+      ) : (
+        <div className="flex-grow pt-32 pb-20 bg-slate-50/30">
+          <div className="max-w-3xl mx-auto px-6">
+            <button 
+              onClick={() => setActivePostId(null)}
+              className="group mb-12 text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-blue-600 flex items-center gap-2 transition-all"
+            >
+              <span className="transition-transform group-hover:-translate-x-1">←</span> Back
+            </button>
+
+            {(() => {
+              // Buscamos el post dinámicamente en el content.ts
+              const post = t.writings.items.find((p: any) => p.id === activePostId);
+              if (!post) return <p>Post not found.</p>;
+
+              return (
+                <article>
+                  <header className="mb-10">
+                    <div className="flex gap-3 text-xs font-medium text-blue-600 mb-4 uppercase tracking-wider">
+                      <span>{post.date}</span>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-8">
+                      {post.title}
+                    </h1>
+                  </header>
+
+                  {/* Imagen con "corte" automático a formato horizontal */}
+                  {post.image && (
+                    <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-2xl mb-12 shadow-lg">
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        className="absolute inset-0 w-full h-full object-cover object-center"
+                      />
+                    </div>
+                  )}
+
+                  {/* Cuerpo del artículo con formato respetado */}
+                  <div className="prose prose-slate lg:prose-xl max-w-none">
+                    <div className="whitespace-pre-wrap text-slate-700 leading-relaxed font-serif text-lg md:text-xl">
+                      {post.fullContent}
+                    </div>
                   </div>
-               </article>
-             </div>
+                  
+                  <div className="mt-20 pt-10 border-t border-slate-100">
+                    <button 
+                      onClick={() => setActivePostId(null)}
+                      className="text-blue-600 font-medium hover:underline flex items-center gap-2"
+                    >
+                      ← Back to all writings
+                    </button>
+                  </div>
+                </article>
+              );
+            })()}
           </div>
-        )}
-        
-        <Footer />
-      </main>
+        </div>
+      )}
+      
+      <Footer />
+    </main>
+  );
+};
+
+// Envolvemos AppContent en el Provider para poder usar useLanguage() dentro
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
     </LanguageProvider>
   );
 };
