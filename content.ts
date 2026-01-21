@@ -96,9 +96,9 @@ Perhaps the most consequential realization of 2025 is that marketing is no longe
 &nbsp;
 
 The teams that thrived treated marketing as:
-* **A system**, not a calendar.
-* **An infrastructure**, not a department.
-* **A capability**, not a set of deliverables.
+* **1.- A system**, not a calendar.
+* **2.- An infrastructure**, not a department.
+* **3.- A capability**, not a set of deliverables.
 
 &nbsp;
 
