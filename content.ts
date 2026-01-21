@@ -58,35 +58,51 @@ export const translations = {
       readArticle: "Read Article",
       items: [
         {
-          id: '1',
-          title: 'Why your "Digital Transformation" is failing',
-          excerpt: 'You are digitizing chaos instead of redesigning the workflow. Automation without simplification is just faster confusion.',
-          date: 'Oct 12, 2023',
-          readTime: '4 min read',
-          link: '#',
+          id: 'ai-exposed-2026',
+          title: '2025: The Year AI Exposed the Foundations',
+          excerpt: 'In hindsight, 2025 will be remembered as the year AI became infrastructure, exposing the operational foundations of marketing leadership.',
+          date: 'Dec 16, 2025',
+          readTime: '5 min read',
+          image: '/postimgs/leadetship_outlook_2025.png',
+          fullContent: `
+In hindsight, 2025 will be remembered as the year artificial intelligence stopped being a feature and became infrastructure. It revealed the operational foundations, the invisible processes, and the structural health of marketing itself.
+
+### 2025 Was the Year of Exposure—not Transformation
+The most important outcome of 2025 was not what AI created. It was what AI exposed:
+1. **The Ambition–Readiness Gap:** Organizations rushed toward generative models but lacked the necessary architecture and data discipline.
+2. **The Fall of “Experimentation AI”:** The era of endless pilots ended abruptly. CEOs now ask: “What are we executing?”
+3. **AI Pressure:** Performance became radically visible, creating a quiet, cumulative, and increasingly unforgiving competitive force.
+
+### The Marketing Spine: The Framework That Defined the Winners
+The "Marketing Spine" is the organization’s operational backbone, composed of integrated architecture, clean data, coherent processes, and standardized execution. When the Marketing Spine is strong, AI becomes leverage. When it is weak, AI becomes noise.
+
+### What 2026 Will Demand from Marketing Leadership
+1. **Operational AI Readiness:** As a standard baseline, not a project.
+2. **Integrated Architecture:** Orchestration over tool accumulation.
+3. **Radical Accountability:** Metrics tied directly to acquisition and growth.
+4. **Hybrid Leadership:** CMOs fluent in both the language of technology and people.
+          `
         },
         {
           id: '2',
           title: 'The AI Paradox: More Content, Less Meaning',
-          excerpt: 'In an age of infinite generation, curation becomes the ultimate skill. How to structure your organization for decision-making, not just creation.',
+          excerpt: 'In an age of infinite generation, curation becomes the ultimate skill.',
           date: 'Sep 28, 2023',
           readTime: '6 min read',
-          link: '#',
         },
         {
           id: '3',
           title: 'Clarity is an expensive asset',
-          excerpt: 'Speed is cheap. Direction is expensive. Why the most successful tech companies slow down before they scale up.',
+          excerpt: 'Speed is cheap. Direction is expensive. Why companies slow down before they scale.',
           date: 'Aug 15, 2023',
           readTime: '3 min read',
-          link: '#',
         },
-      ] as BlogPost[],
+      ] as any[], 
     },
     aiInsight: {
       label: "Live Demonstration",
       heading: "Applied Strategic Intelligence",
-      description: "Experience the philosophy. Tell me a complex challenge you are facing, and I will generate a strategic reframe using my digital twin (Powered by Gemini).",
+      description: "Experience the philosophy. Tell me a complex challenge you are facing, and I will generate a strategic reframe using my digital twin.",
       placeholder: "e.g., 'My team is shipping fast but churn is high'",
       buttonLoading: "Analyzing...",
       buttonDefault: "Generate Insight",
@@ -94,7 +110,7 @@ export const translations = {
     },
     contact: {
       heading: "Ready to reduce the noise?",
-      description: "I accept a limited number of strategic engagements per quarter. Let's determine if we are a match.",
+      description: "I accept a limited number of strategic engagements per quarter.",
       button: "Initiate Contact",
     },
     footer: {
@@ -123,19 +139,19 @@ export const translations = {
         {
           id: 'ai',
           title: 'IA Aplicada',
-          description: 'Más allá del hype: implementamos modelos de lenguaje y sistemas predictivos que resuelven ineficiencias reales del negocio, no imaginarias.',
+          description: 'Implementamos sistemas predictivos que resuelven ineficiencias reales del negocio.',
           icon: 'brain',
         },
         {
           id: 'automation',
           title: 'Automatización Inteligente',
-          description: 'Diseño de flujos de trabajo autocorrectivos. No se trata de reemplazar humanos, sino de eliminar la fricción en la toma de decisiones de alto valor.',
+          description: 'Eliminamos la fricción en la toma de decisiones de alto valor.',
           icon: 'workflow',
         },
         {
           id: 'strategy',
           title: 'Estrategia Digital de Negocio',
-          description: 'La tecnología sirve al P&L, no al revés. Priorizamos sistemas sostenibles sobre victorias tácticas efímeras.',
+          description: 'La tecnología sirve al P&L, no al revés.',
           icon: 'chess',
         },
       ] as Pillar[],
@@ -143,10 +159,10 @@ export const translations = {
     about: {
       label: "Sobre Mí",
       heading: "Sistemas sobre tácticas.",
-      p1: "En un mundo obsesionado con la velocidad, elijo la precisión. Soy un consultor obsesionado con convertir la complejidad en decisiones accionables.",
-      p2: "Mi trabajo no es agregar más herramientas a tu stack. Es sustraer el ruido. Conecto la tecnología con las realidades del negocio, asegurando que cada línea de código o pivote estratégico sirva a un resultado medible.",
-      p3: "Creo en la colaboración sincera. Sin promesas vacías, sin exageraciones—solo análisis riguroso y ejecución elegante.",
-      quote: "La claridad es la única métrica que importa cuando el mercado es caótico.",
+      p1: "En un mundo obsesionado con la velocidad, elijo la precisión.",
+      p2: "Conecto la tecnología con las realidades del negocio.",
+      p3: "Análisis riguroso y ejecución elegante.",
+      quote: "La claridad es la única métrica que importa.",
       cta: "Discutir su estrategia",
     },
     writings: {
@@ -156,35 +172,50 @@ export const translations = {
       readArticle: "Leer Artículo",
       items: [
         {
-          id: '1',
-          title: 'Por qué tu "Transformación Digital" está fallando',
-          excerpt: 'Estás digitalizando el caos en lugar de rediseñar el flujo de trabajo. La automatización sin simplificación es solo confusión acelerada.',
-          date: '12 Oct, 2023',
-          readTime: '4 min lectura',
-          link: '#',
+          id: 'ai-exposed-2026',
+          title: '2025: El año en que la IA expuso los cimientos',
+          excerpt: 'La IA dejó de ser una función para convertirse en infraestructura, revelando la salud estructural del marketing.',
+          date: '16 Dic, 2025',
+          readTime: '5 min lectura',
+          image: '/postimgs/leadetship_outlook_2025.png',
+          fullContent: `
+En retrospectiva, 2025 será recordado como el año en que la inteligencia artificial dejó de ser una característica y se convirtió en infraestructura.
+
+### 2025 Fue el Año de la Exposición, no de la Transformación
+El resultado más importante de 2025 no fue lo que la IA creó, sino lo que expuso:
+1. **La brecha de preparación:** Las organizaciones corrieron hacia la IA sin la arquitectura de datos necesaria.
+2. **El fin de la experimentación:** Los CEOs dejaron de preguntar por pruebas y empezaron a exigir ejecución medible.
+3. **Presión de IA:** Una nueva fuerza competitiva que hizo la ineficiencia radicalmente visible.
+
+### La Columna del Marketing (Marketing Spine)
+Es el backbone operativo: arquitectura integrada, datos limpios y procesos coherentes. En 2025, este marco separó a los líderes de los rezagados.
+
+### Lo que 2026 exigirá del liderazgo
+1. **Madurez Operativa de IA:** Como estándar básico.
+2. **Arquitectura sobre Herramientas:** La ventaja vendrá de la orquestación.
+3. **Responsabilidad Radical:** Métricas ligadas directamente al crecimiento.
+          `
         },
         {
           id: '2',
           title: 'La Paradoja de IA: Más Contenido, Menos Sentido',
-          excerpt: 'En una era de generación infinita, la curaduría es la habilidad definitiva. Cómo estructurar tu organización para decidir, no solo para crear.',
+          excerpt: 'En una era de generación infinita, la curaduría es la habilidad definitiva.',
           date: '28 Sep, 2023',
           readTime: '6 min lectura',
-          link: '#',
         },
         {
           id: '3',
           title: 'La claridad es un activo costoso',
-          excerpt: 'La velocidad es barata. La dirección es costosa. Por qué las empresas tecnológicas más exitosas desaceleran antes de escalar.',
+          excerpt: 'La velocidad es barata. La dirección es costosa.',
           date: '15 Ago, 2023',
           readTime: '3 min lectura',
-          link: '#',
         },
-      ] as BlogPost[],
+      ] as any[],
     },
     aiInsight: {
       label: "Demostración en Vivo",
       heading: "Inteligencia Estratégica Aplicada",
-      description: "Experimenta la filosofía. Cuéntame un desafío complejo que enfrentes y generaré un reencuadre estratégico usando mi gemelo digital (Potenciado por Gemini).",
+      description: "Experimenta la filosofía. Cuéntame un desafío complejo y generaré un reencuadre estratégico.",
       placeholder: "ej., 'Mi equipo envía código rápido pero la rotación es alta'",
       buttonLoading: "Analizando...",
       buttonDefault: "Generar Insight",
@@ -192,7 +223,7 @@ export const translations = {
     },
     contact: {
       heading: "¿Listo para reducir el ruido?",
-      description: "Acepto un número limitado de compromisos estratégicos por trimestre. Determinemos si somos compatibles.",
+      description: "Acepto un número limitado de compromisos estratégicos.",
       button: "Iniciar Contacto",
     },
     footer: {
