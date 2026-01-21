@@ -67,9 +67,12 @@ export const translations = {
           fullContent: `
 In hindsight, 2025 will be remembered as the year artificial intelligence stopped being a feature and became infrastructure. A year when AI no longer waited for organizations to be ready, and by doing so, exposed something deeper than technological capability: it revealed the operational foundations, the invisible processes, and the structural health of marketing itself.
 
+
 It was not a loud disruption. It was a silent one. And in that silence, AI illuminated gaps that creativity, intuition, or campaign volume had been masking for years.
 
+
 ### 2025 Was the Year of Exposure—not Transformation
+
 
 The most important outcome of 2025 was not what AI created. It was what AI exposed:
 
