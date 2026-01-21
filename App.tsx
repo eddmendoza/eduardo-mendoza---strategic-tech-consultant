@@ -65,7 +65,7 @@ const AppContent: React.FC = () => {
                       <img 
                         src={post.image} 
                         alt={post.title} 
-                        className="absolute inset-0 w-full h-full object-cover object-center"
+                        className="absolute inset-0 w-full h-full object-cover object-top" 
                       />
                     </div>
                   )}
