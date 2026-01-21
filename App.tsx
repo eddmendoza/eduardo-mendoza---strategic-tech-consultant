@@ -70,12 +70,12 @@ const AppContent: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Cuerpo del artículo con formato premium */}
+                  {/* Cuerpo del artículo con formato premium y bullets forzados */}
                   <div className="prose prose-slate lg:prose-xl max-w-none 
                     prose-p:mb-8 
                     prose-headings:mt-16 prose-headings:mb-6
-                    prose-ul:list-disc prose-ul:ml-8 prose-ul:space-y-4
-                    prose-li:pl-2 prose-li:text-slate-700">
+                    prose-ul:my-6 prose-ul:list-disc prose-ul:pl-10
+                    prose-li:my-3 prose-li:marker:text-blue-600">
                     <div className="text-slate-700 leading-relaxed font-serif text-lg md:text-xl">
                       <ReactMarkdown>{post.fullContent}</ReactMarkdown>
                     </div>
