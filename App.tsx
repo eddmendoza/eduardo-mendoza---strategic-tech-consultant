@@ -70,8 +70,12 @@ const AppContent: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Cuerpo del artículo con formato respetado */}
-                  <div className="prose prose-slate lg:prose-xl max-w-none prose-p:mb-6 prose-headings:mt-12 prose-ul:list-disc prose-ul:ml-6 prose-li:pl-2">
+                  {/* Cuerpo del artículo con formato premium */}
+                  <div className="prose prose-slate lg:prose-xl max-w-none 
+                    prose-p:mb-8 
+                    prose-headings:mt-16 prose-headings:mb-6
+                    prose-ul:list-disc prose-ul:ml-8 prose-ul:space-y-4
+                    prose-li:pl-2 prose-li:text-slate-700">
                     <div className="text-slate-700 leading-relaxed font-serif text-lg md:text-xl">
                       <ReactMarkdown>{post.fullContent}</ReactMarkdown>
                     </div>
