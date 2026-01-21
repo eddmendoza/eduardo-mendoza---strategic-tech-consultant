@@ -38,7 +38,7 @@ const About: React.FC = () => {
         <div className="flex justify-center md:justify-end order-1 md:order-1 h-full">
           <div className="relative w-full max-w-[320px] md:max-w-md aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100 shadow-sm group">
             <img
-              src="https://placehold.co/600x800/e2e8f0/1e293b?text=Eduardo+Mendoza" 
+              src="/profile.jpg" 
               alt="Eduardo Mendoza Profile"
               className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
             />
