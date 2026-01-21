@@ -96,11 +96,9 @@ Perhaps the most consequential realization of 2025 is that marketing is no longe
 &nbsp;
 
 The teams that thrived treated marketing as:
-1.  **A system**, not a calendar.
-
-2.  **An infrastructure**, not a department.
-
-3.  **A capability**, not a set of deliverables.
+* **A system**, not a calendar.
+* **An infrastructure**, not a department.
+* **A capability**, not a set of deliverables.
 
 &nbsp;
 
@@ -109,11 +107,11 @@ The teams that thrived treated marketing as:
 &nbsp;
 
 The **Marketing Spine** is the organization’s operational backbone, composed of:
-* Integrated architecture.
-* Clean and accessible data.
-* Coherent processes.
-* Cross-functional governance.
-* Standardized execution.
+* **Integrated architecture.
+* **Clean and accessible data.
+* **Coherent processes.
+* **Cross-functional governance.
+* **Standardized execution.
 
 &nbsp;
 
@@ -127,15 +125,11 @@ When the Marketing Spine is strong, AI becomes leverage. When it is weak, AI bec
 
 If 2025 exposed, then 2026 will demand. It will do so through five executive imperatives:
 
-1.  **Operational AI Readiness:** Not as a project, but a standard baseline expectation.
-
-2.  **Integrated Architecture Over Tool Accumulation:** Edge will come from orchestration, not tech stacks.
-
-3.  **Precision Over Volume:** Data-informed, purpose-driven content strategies.
-
-4.  **Radical Accountability:** Metrics tied directly to acquisition, efficiency, and growth.
-
-5.  **Hybrid Leadership:** CMOs fluent in both the language of technology and people.
+* **Operational AI Readiness:** Not as a project, but a standard baseline expectation.
+* **Integrated Architecture Over Tool Accumulation:** Edge will come from orchestration, not tech stacks.
+* **Precision Over Volume:** Data-informed, purpose-driven content strategies.
+* **Radical Accountability:** Metrics tied directly to acquisition, efficiency, and growth.
+* **Hybrid Leadership:** CMOs fluent in both the language of technology and people.
 
 &nbsp;
 
