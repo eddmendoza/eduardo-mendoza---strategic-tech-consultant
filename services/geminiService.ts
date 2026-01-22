@@ -1,14 +1,11 @@
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   
-  // Log de diagnóstico
-  console.log("Iniciando petición directa. Llave detectada:", !!apiKey);
-
   if (!apiKey) {
     return "Error: API Key no configurada.";
   }
 
-  // URL directa de la API de Google (usando la versión estable)
+  // URL corregida: Aseguramos que el endpoint sea el correcto para v1beta
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
@@ -26,29 +23,23 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
             
             Desafío del usuario: ${topic}`
           }]
-        }],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 300,
-        }
+        }]
       })
     });
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.error("Error de la API de Google:", errorData);
-      return `Error de la API (${response.status}): ${errorData.error?.message || 'Consulta la consola'}`;
+      console.error("Error detallado de Google API:", errorData);
+      
+      // Si el error es 400 o 404, Google nos dirá por qué en el JSON
+      return `Error (${response.status}): ${errorData.error?.message || 'Revisa la consola'}`;
     }
 
     const data = await response.json();
-    
-    // Extraemos el texto de la estructura de respuesta de Google
-    const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    
-    return aiResponse || "El Oráculo no pudo procesar la respuesta.";
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Sin respuesta del Oráculo.";
 
   } catch (error: any) {
-    console.error("Error en fetch directo:", error);
-    return "Error de red: No se pudo conectar con el Oráculo.";
+    console.error("Error en fetch:", error);
+    return "Error de red al conectar con el Oráculo.";
   }
 };
