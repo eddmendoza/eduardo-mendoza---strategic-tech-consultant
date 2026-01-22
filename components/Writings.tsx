@@ -55,7 +55,7 @@ const Writings: React.FC<WritingsProps> = ({ onPostClick }) => {
         </div>
         
         <div className="mt-8 md:hidden text-center">
-            <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
+            <a href="https://www.linkedin.com/in/eddmendoza/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-slate-900">
                 {t.writings.viewLinkedIn} <ArrowRightIcon className="w-4 h-4" />
             </a>
         </div>
