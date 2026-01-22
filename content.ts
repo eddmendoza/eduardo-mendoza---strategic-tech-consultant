@@ -402,26 +402,44 @@ Those treating AI as infrastructure are not just saving time—they are pulling 
           fullContent: `
 En retrospectiva, 2025 será recordado como el año en que la inteligencia artificial dejó de ser una "función" para convertirse en infraestructura. Un año en el que la IA no esperó a que las organizaciones estuvieran listas y, al hacerlo, expuso algo más profundo que la capacidad tecnológica: reveló los cimientos operativos, los procesos invisibles y la salud estructural del marketing mismo.
 
+&nbsp;
+
 No fue una disrupción estrepitosa. Fue silenciosa. Y en ese silencio, la IA iluminó brechas que la creatividad, la intuición o el volumen de campañas habían estado enmascarando durante años.
+
+&nbsp;
 
 ### 2025: El Año de la Exposición, no de la Transformación
 
+&nbsp;
+
 El resultado más importante de 2025 no fue lo que la IA creó, sino lo que expuso:
+
+&nbsp;
 
 * **La brecha entre ambición y preparación se hizo innegable:** Las organizaciones corrieron hacia modelos generativos con velocidad, pero carecían de la arquitectura y la disciplina de datos necesaria. La IA amplificó la ineficiencia en lugar de repararla.
 * **El fin de la "IA de experimentación":** La era de los pilotos interminables terminó abruptamente. Los CEOs dejaron de preguntar "¿Qué estamos probando?" para preguntar "¿Qué estamos ejecutando?".
 * **Presión de IA (AI Pressure):** La IA hizo que el rendimiento, la velocidad de contenido y la coherencia estratégica fueran radicalmente visibles. Esta transparencia creó una presión competitiva escalable: la **Presión de IA**. Silenciosa, acumulativa y cada vez más implacable.
 
+&nbsp;
+
 ### Marketing como Infraestructura: La Lección Silenciosa
 
+&nbsp;
+
 Quizás la conclusión más importante de 2025 es que el marketing ya no es una colección de iniciativas; es una **infraestructura operativa**. 
+
+&nbsp;
 
 Los equipos que prosperaron trataron al marketing como:
 1.  **Un sistema**, no un calendario.
 2.  **Una infraestructura**, no un departamento.
 3.  **Una capacidad**, no un conjunto de entregables.
 
+&nbsp;
+
 ### La Columna del Marketing (Marketing Spine): El Marco del Éxito
+
+&nbsp;
 
 La **Columna del Marketing** es el núcleo operativo de la organización, compuesto por:
 * Arquitectura integrada.
@@ -430,11 +448,19 @@ La **Columna del Marketing** es el núcleo operativo de la organización, compue
 * Gobernanza multifuncional.
 * Ejecución estandarizada.
 
+&nbsp;
+
 Cuando la Columna del Marketing es fuerte, la IA se convierte en palanca. Cuando es débil, la IA es solo ruido.
+
+&nbsp;
 
 ### Lo que 2026 Exigirá del Liderazgo de Marketing
 
+&nbsp;
+
 Si 2025 expuso las debilidades, 2026 exigirá soluciones a través de cinco imperativos ejecutivos:
+
+&nbsp;
 
 1.  **Madurez Operativa de IA:** No como un proyecto, sino como un estándar base de operación.
 2.  **Arquitectura Integrada sobre Acumulación de Herramientas:** La ventaja vendrá de la orquestación, no del tamaño del stack tecnológico.
@@ -442,26 +468,192 @@ Si 2025 expuso las debilidades, 2026 exigirá soluciones a través de cinco impe
 4.  **Responsabilidad Radical:** Métricas vinculadas directamente a la adquisición, la eficiencia y el crecimiento.
 5.  **Liderazgo Híbrido:** CMOs fluidos tanto en el lenguaje de la tecnología como en el de las personas.
 
+&nbsp;
+
 ### Conclusión
 
+&nbsp;
+
 La IA no transformó el marketing desde fuera; reveló lo que el marketing ya era por dentro. Las organizaciones que entren en 2026 con una Columna de Marketing sólida construirán una ventaja competitiva significativa.
+
+&nbsp;
 
 La IA no reemplazará el liderazgo de marketing. Pero amplificará, implacablemente, la claridad, la disciplina y el rigor estratégico de los líderes que decidan abrazarla.
           `
         },
         {
-          id: '2',
-          title: 'La Paradoja de IA: Más Contenido, Menos Sentido',
-          excerpt: 'En una era de generación infinita, la curaduría es la habilidad definitiva.',
-          date: '28 Sep, 2023',
+          id: 'decisiones-estrategicas-2025',
+          title: 'El año en que dejé de optimizar y empecé a decidir',
+          excerpt: 'La verdadera sofisticación no se encuentra en lo que construyes, sino en lo que eliges conscientemente no construir. Una reflexión sobre el cambio del volumen técnico al juicio estratégico.',
+          date: '30 Dic, 2025',
           readTime: '6 min lectura',
+          image: '/postimgs/Stopped_Optimizing.png',
+          fullContent:`
+
+Durante años, medí el progreso por volumen: más proyectos, más herramientas, más ideas corriendo en paralelo. **2025 fue el año en que me di cuenta de que eso no era progreso.** Era ruido bien organizado.
+
+&nbsp;
+
+No fue un año de anuncios públicos ni de métricas de titulares. Desde fuera, pudo parecer tranquilo. Internamente, no lo fue. Fue un año de decisiones. De simplificación. De juicio.
+
+&nbsp;
+
+Y, sobre todo, fue el año en que acepté plenamente algo que muchos intuyen pero pocos están dispuestos a ejecutar: **no todo lo que es posible merece ser construido.**
+
+&nbsp;
+
+### De la fascinación tecnológica a la claridad estratégica
+La inteligencia artificial dejó de ser una promesa en 2025; se convirtió en infraestructura. Ese cambio transformó la conversación por completo.
+
+&nbsp;
+
+Ya no se trata de qué herramienta usar, sino de qué problema vale la pena resolver. Ya no se trata de automatizar más rápido, sino de saber qué no automatizar. Vi a demasiados equipos atrapados en pilotos interminables, tableros sin decisiones y agentes inteligentes sin un propósito claro. Y también vi lo contrario: decisiones pequeñas y bien enmarcadas creando un impacto real.
+
+&nbsp;
+
+La diferencia no fue técnica. Fue estratégica.
+
+&nbsp;
+
+### Menos frameworks, más criterio
+Este año reforzó una verdad incómoda: los frameworks ayudan... hasta que se convierten en un refugio para evitar tomar decisiones. 
+
+&nbsp;
+
+2025 me obligó a volver a los fundamentos:
+1.  **¿Qué problema importa realmente?**
+2.  **¿Quién es el dueño de la decisión?**
+3.  **¿Qué pasa si no hacemos nada?**
+
+&nbsp;
+
+Cuando esas preguntas están claras, la tecnología deja de ser el centro y se convierte en lo que siempre debió ser: un medio, no un fin.
+
+&nbsp;
+
+### Construir con intención y saber cuándo detenerse
+Una de las lecciones más valiosas de este año fue aprender a detener proyectos en el momento adecuado. No porque fallaran, sino porque las prioridades cambiaron.
+
+&nbsp;
+
+Detener algo que está bien diseñado pero mal priorizado es también una forma de liderazgo. Cerrar un flujo que funciona pero que no "mueve la aguja" es una forma de respeto por el equipo y por el negocio. En 2025, aprendí que la disciplina estratégica no consiste en empezar cosas, sino en sostenerlas y terminarlas correctamente.
+
+&nbsp;
+
+### La nueva ventaja competitiva: Pensamiento en calma
+En un mundo acelerado por la IA, la ventaja no fue moverse más rápido. Fue pensar mejor.
+
+&nbsp;
+
+* Pensar con contexto.
+* Pensar en términos de impacto.
+* Pensar a largo plazo cuando todo empuja hacia el corto plazo.
+
+&nbsp;
+
+Los mejores resultados que vi este año no provinieron de la herramienta más nueva, sino de líderes que se permitieron reducir la complejidad, alinear a sus equipos y ejecutar con enfoque.
+
+&nbsp;
+
+### Mirando hacia 2026
+No espero que 2026 sea más grande. Espero que sea **más claro**.
+
+&nbsp;
+
+Menos ruido. Mejores decisiones. Tecnología al servicio de una estrategia que realmente exista. Si 2025 me dejó una convicción, es esta: **la verdadera sofisticación no se encuentra en lo que construyes, sino en lo que eliges conscientemente no construir.**
+
+&nbsp;
+
+Ese es el estándar que llevo conmigo para el año que comienza.
+          `
         },
         {
-          id: '3',
-          title: 'La claridad es un activo costoso',
-          excerpt: 'La velocidad es barata. La dirección es costosa.',
-          date: '15 Ago, 2023',
+          id: 'ia-ventaja-competitive-marketing-2025',
+          title: 'De juguete a ventaja competitiva: El nuevo marketing con IA',
+          excerpt: 'La brecha entre experimentar con IA e integrarla estratégicamente se está cerrando para algunos y abriendo para otros. Un marco para pasar de simples prompts a capacidades core.',
+          date: '25 Nov, 2021',
           readTime: '3 min lectura',
+          image: '/postimgs/leadetship_outlook_2025.png',
+          fullContent:`
+Durante la mayor parte de los últimos dos años, las empresas trataron la IA como un juguete: algo para probar, jugar y explorar. Sin embargo, para 2025, la brecha entre las empresas que simplemente experimentan y aquellas que la integran estratégicamente se ha vuelto imposible de ignorar.
+
+&nbsp;
+
+**Los ganadores no son los que saben usar prompts; son los que están construyendo capacidades.**
+
+&nbsp;
+
+### 1. El límite de la "Fase de Experimentación"
+Muchos equipos de marketing y negocios siguen atrapados en el mismo bucle: casos de uso aislados, prompts de una sola vez en lugar de sistemas, y automatizaciones que no escalan. Esto genera ganancias en eficiencia, pero no una ventaja competitiva real.
+
+&nbsp;
+
+### 2. La Curva de Madurez de la IA: Cómo crecen las capacidades
+Un patrón claro está emergiendo a través de las industrias. La madurez de la IA evoluciona en cuatro fases:
+
+&nbsp;
+
+* **Fase 1 - Juguete (Experimentación):** Prompting y curiosidad. Útil, pero limitado.
+* **Fase 2 - Proceso (Estandarización):** Los equipos crean flujos de trabajo (SOPs) y métodos repetibles. La IA se vuelve confiable.
+* **Fase 3 - Inteligencia (Integración de Datos + Sistemas):** La IA se integra con el CRM, CMS y bases de conocimiento internas. El modelo deja de ser genérico y se vuelve preciso.
+* **Fase 4 - Infraestructura (Capacidad Estratégica):** La IA se convierte en la capa central del modelo operativo: desde la investigación hasta el reporte final.
+
+&nbsp;
+
+> La ventaja competitiva aparece únicamente en las fases 3 y 4.
+
+---
+
+### 3. Ejemplos Reales: Qué significa la IA Estratégica
+Líderes de mercado están demostrando que el valor no está en la herramienta, sino en la infraestructura:
+
+&nbsp;
+
+#### Inteligencia de Mercado Potenciada
+Empresas como **Amazon** o **IBM Watson** ya no solo "consumen" datos; los ingieren, normalizan e integran a escala para que la IA no solo ayude al negocio, sino que lo ejecute.
+
+&nbsp;
+
+#### Experiencias de Cliente Adaptativas
+**Mercado Libre** y **Spotify** no crean más contenido; crean sistemas que se adaptan continuamente. Utilizan billones de puntos de datos para ajustar precios y recomendaciones en tiempo real.
+
+&nbsp;
+
+#### Operaciones de Conocimiento y Contenido
+Equipos como los de **Atlassian** o **Nubank** han pasado de la escritura manual a motores editoriales e informativos integrados en sus productos, optimizando desde el soporte hasta la detección de riesgos.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+### 4. El Marco de Trabajo: Las Cuatro Capas
+Para evaluar tu organización, utiliza este modelo:
+
+&nbsp;
+
+1.  **Herramientas:** Usas IA para tareas rápidas (ej. redactar correos). La productividad mejora, pero no es defendible.
+2.  **Automatizaciones:** Construyes flujos (ej. Zapier o Make). Las tareas son consistentes pero permanecen desconectadas.
+3.  **Inteligencia:** Conectas datos (CRM + Analytics). La IA deja de ser genérica y adquiere contexto.
+4.  **Producto e IP:** Transformas la IA en activos propios. La IA se convierte en el "sistema operativo" de tu marketing.
+
+&nbsp;
+
+### La pregunta crítica para 2026
+
+&nbsp;
+
+Ya no se trata de "¿cómo estás experimentando con IA?", sino de:  
+
+&nbsp;
+
+**"¿Qué capacidades de IA estás construyendo que tus competidores no tendrán?"**
+
+&nbsp;
+
+Aquellos que traten la IA como infraestructura no solo ahorrarán tiempo; se separarán definitivamente del resto.
+          `
         },
       ] as any[],
     },
