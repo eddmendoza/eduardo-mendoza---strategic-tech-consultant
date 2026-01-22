@@ -1,47 +1,50 @@
 import { GoogleGenAI } from "@google/genai";
 
 const getClient = () => {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || ''; 
-    return new GoogleGenAI({ apiKey });
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || ''; 
+  return new GoogleGenAI(apiKey); // Simplificado según la última SDK
 }
 
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
   if (!import.meta.env.VITE_GEMINI_API_KEY) {
-      return "Unable to access the Oracle. (API Key missing configuration)";
+    return "API Key missing configuration.";
   }
 
-  const ai = getClient();
-  
-  // Instrucciones optimizadas para realismo y formato
-  const systemInstruction = `
-    You are Eduardo Mendoza, a high-end tech consultant.
-    Your tone is: Sincere, analytical, direct, elegant, and minimalist.
+  const genAI = getClient();
+  // Usamos 1.5-flash que es el más estable para free tier
+  const model = genAI.getGenerativeModel({ 
+    model: "gemini-1.5-flash",
+  });
+
+  // El truco para que no falle: 
+  // Combinamos la instrucción con el prompt en un solo bloque si el systemInstruction falla
+  const fullPrompt = `
+    System: You are Eduardo Mendoza, a high-end tech consultant. Tone: Sincere, analytical, elegant, minimalist. Respond in the same language as the user.
     
-    GUIDELINES:
-    - Respond in the SAME LANGUAGE as the user's input.
-    - Use Markdown: **bold** for key concepts, but keep it clean.
-    - Give a profound strategic reframe (max 3 short paragraphs).
-    - Focus on "Systems over tactics."
+    User Challenge: ${topic}
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-1.5-flash', 
-      contents: topic,
-      config: {
-        systemInstruction: systemInstruction,
-        temperature: 0.5, // Tu elección de 0.5 es ideal para realismo
+    const result = await model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
+      generationConfig: {
+        temperature: 0.5,
         topP: 0.8,
         topK: 40,
       },
     });
 
-    // Si la respuesta llega vacía, enviamos un mensaje con tu estilo
-    return response.text || "Complexity requires time to unravel. Try again.";
+    const response = await result.response;
+    return response.text();
 
-  } catch (error) {
-    console.error("Gemini API Error:", error);
-    // Este mensaje previene que el usuario vea errores técnicos crudos
-    return "The Oracle is currently calibrating due to high demand. Please try again in a moment.";
+  } catch (error: any) {
+    console.error("Gemini Error:", error);
+    
+    // Si el error es 503, es saturación de Google
+    if (error.message?.includes('503')) {
+      return "The Oracle is calibrating due to high demand. Please try again in 30 seconds.";
+    }
+    
+    return "Complexity requires time. Please try again.";
   }
 };
