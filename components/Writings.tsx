@@ -23,7 +23,7 @@ const Writings: React.FC<WritingsProps> = ({ onPostClick }) => {
               {t.writings.heading}
             </h3>
           </div>
-          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-900 hover:text-slate-600 transition-colors">
+          <a href="https://www.linkedin.com/in/eddmendoza/" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-900 hover:text-slate-600 transition-colors">
             {t.writings.viewLinkedIn} <ArrowRightIcon className="w-4 h-4" />
           </a>
         </div>
