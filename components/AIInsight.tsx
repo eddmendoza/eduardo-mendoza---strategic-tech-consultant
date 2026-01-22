@@ -67,10 +67,11 @@ const AIInsight: React.FC = () => {
 
         {insight && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-slate-800/50 p-8 rounded-sm border-l-2 border-white max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl font-serif italic leading-relaxed text-slate-200">
-                "{insight}"
-              </p>
+            <div className="bg-slate-800/50 p-8 rounded-sm border-l-2 border-white max-w-2xl mx-auto text-left">
+              {/* Usamos ReactMarkdown para procesar las negritas y párrafos */}
+              <div className="prose prose-invert prose-slate font-serif italic leading-relaxed text-slate-200">
+                <ReactMarkdown>{insight}</ReactMarkdown>
+              </div>
             </div>
           </div>
         )}
