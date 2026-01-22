@@ -1,27 +1,21 @@
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   
-  if (!apiKey) {
-    return "Error: API Key no configurada.";
-  }
+  if (!apiKey) return "Error: API Key no detectada.";
 
-  // URL corregida: Aseguramos que el endpoint sea el correcto para v1beta
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  // Intentamos con v1 (más estable) y el nombre de modelo completo
+  const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{
           parts: [{
-            text: `System: Eres Eduardo Mendoza, consultor estratégico de tecnología. 
-            Responde con un tono sincero, analítico, elegante y minimalista. 
-            Usa el mismo idioma del usuario.
-            
-            Desafío del usuario: ${topic}`
+            text: `Eres Eduardo Mendoza, un consultor de estrategia tecnológica de alto nivel. 
+            Tu estilo es minimalista, analítico y elegante. 
+            Responde de forma breve y profunda al siguiente desafío: ${topic}`
           }]
         }]
       })
@@ -29,17 +23,20 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.error("Error detallado de Google API:", errorData);
+      console.error("Error detallado:", errorData);
       
-      // Si el error es 400 o 404, Google nos dirá por qué en el JSON
-      return `Error (${response.status}): ${errorData.error?.message || 'Revisa la consola'}`;
+      // Si el 404 persiste, es posible que tu API Key solo tenga acceso a v1beta
+      if (response.status === 404) {
+         return "Error 404: El modelo no fue encontrado. Revisa si la API Key tiene habilitado Gemini 1.5 Flash en AI Studio.";
+      }
+      
+      return `Error (${response.status}): ${errorData.error?.message || 'Error desconocido'}`;
     }
 
     const data = await response.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Sin respuesta del Oráculo.";
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "El Oráculo no pudo procesar la idea.";
 
   } catch (error: any) {
-    console.error("Error en fetch:", error);
-    return "Error de red al conectar con el Oráculo.";
+    return "Error de red: No se pudo conectar con el servicio de IA.";
   }
 };
