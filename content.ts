@@ -146,10 +146,53 @@ AI will not replace marketing leadership. But it will amplify, relentlessly, the
         },
         {
           id: '2',
-          title: 'The AI Paradox: More Content, Less Meaning',
-          excerpt: 'In an age of infinite generation, curation becomes the ultimate skill.',
-          date: 'Sep 28, 2023',
+          title: '2025: The Year of Strategic Deciding',
+          excerpt: 'True sophistication is not found in what you build, but in what you consciously choose not to build. A reflection on shifting from technical volume to strategic judgment.',
+          date: 'Dec 30, 2025',
           readTime: '6 min read',
+          image: '/postimgs/Stopped_Optimizing.png',
+          fullContent:`
+          # 2025: The Year I Stopped Optimizing, and Started Deciding
+
+For years, I measured progress by volume: more projects, more tools, more ideas running in parallel. **2025 was the year I realized that wasn’t progress.** It was well-organized noise.
+
+It wasn’t a year of public announcements or headline metrics. From the outside, it may have looked quiet. Internally, it was a year of decisions, simplification, and judgment.
+
+> Not everything that is possible deserves to be built.
+
+### From Technological Fascination to Strategic Clarity
+Artificial intelligence stopped being a promise in 2025; it became infrastructure. That shift changed the conversation entirely. It’s no longer about which tool to use, but about **which problem is worth solving**. 
+
+I saw too many teams stuck in endless pilots and dashboards without decisions. The difference between success and stagnation wasn't technical—it was strategic.
+
+### Fewer Frameworks, More Judgment
+This year reinforced an uncomfortable truth: frameworks help until they become a refuge from making decisions. 2025 forced me back to fundamentals:
+
+1. **What problem actually matters?**
+2. **Who owns the decision?**
+3. **What happens if we do nothing?**
+
+When those questions are clear, technology stops being the center and becomes what it was always meant to be: a means, not an end.
+
+### The Discipline of Stopping
+One of the most valuable lessons this year was learning to stop projects at the right time. Stopping something that is well-designed but poorly prioritized is also a form of leadership. 
+
+Strategic discipline isn’t just about starting things, but about sustaining and ending them properly. Shutting down a flow that works but doesn’t "move the needle" is a form of respect for the team and the business.
+
+### The New Competitive Advantage: Calm Thinking
+In a world accelerated by AI, the advantage wasn’t moving faster. It was thinking better. 
+
+* Thinking with context.
+* Thinking in terms of impact.
+* Thinking long-term when everything pushes toward the short term.
+
+The best outcomes didn't come from the newest tool, but from leaders who reduced complexity and aligned teams with focus.
+
+### Looking Toward 2026
+I don’t expect 2026 to be bigger. I expect it to be **clearer**. 
+
+True sophistication is not found in what you build, but in what you consciously choose not to build. That is the standard I’m carrying into the year ahead.
+          `
         },
         {
           id: '3',
