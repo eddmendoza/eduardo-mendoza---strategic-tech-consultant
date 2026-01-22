@@ -9,7 +9,8 @@ const getClient = () => {
 }
 
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
-  if (!process.env.API_KEY) {
+    // Por esto (ussando Vite):
+    if (!import.meta.env.VITE_GEMINI_API_KEY) {
       return "Unable to access the Oracle. (API Key missing configuration)";
   }
 
