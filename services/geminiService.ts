@@ -1,45 +1,54 @@
-import { GoogleGenAI } from "@google/genai";
-
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
-  // 1. Extraemos la llave directamente
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   
-  console.log("Comprobación de API Key:", apiKey ? "DETECTADA (OK)" : "NO DETECTADA (ERROR)");
+  // Log de diagnóstico
+  console.log("Iniciando petición directa. Llave detectada:", !!apiKey);
 
   if (!apiKey) {
     return "Error: API Key no configurada.";
   }
 
+  // URL directa de la API de Google (usando la versión estable)
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
   try {
-    // 2. IMPORTANTE: Inicialización explícita dentro del bloque try
-    const genAI = new GoogleGenAI(apiKey);
-    
-    // 3. Obtenemos el modelo
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash"
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `System: Eres Eduardo Mendoza, consultor estratégico de tecnología. 
+            Responde con un tono sincero, analítico, elegante y minimalista. 
+            Usa el mismo idioma del usuario.
+            
+            Desafío del usuario: ${topic}`
+          }]
+        }],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 300,
+        }
+      })
     });
 
-    // 4. Estructura de mensaje simplificada al máximo para evitar errores de validación de la SDK
-    const result = await model.generateContent({
-      contents: [{ 
-        role: "user", 
-        parts: [{ text: `System: Eres Eduardo Mendoza, consultor estratégico. Responde brevemente al siguiente desafío: ${topic}` }] 
-      }]
-    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Error de la API de Google:", errorData);
+      return `Error de la API (${response.status}): ${errorData.error?.message || 'Consulta la consola'}`;
+    }
 
-    const response = await result.response;
-    const text = response.text();
+    const data = await response.json();
     
-    return text || "El Oráculo no pudo generar una respuesta.";
+    // Extraemos el texto de la estructura de respuesta de Google
+    const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    
+    return aiResponse || "El Oráculo no pudo procesar la respuesta.";
 
   } catch (error: any) {
-    // Si el error sigue siendo "An API Key must be set", intentaremos un método alternativo
-    console.error("Error detallado de Gemini:", error);
-    
-    if (error.message?.includes("API Key must be set")) {
-      return "Error interno de inicialización de la SDK de Google. Reintentando con protocolo de respaldo...";
-    }
-    
-    return `Error: ${error.message || "Consulta la consola"}`;
+    console.error("Error en fetch directo:", error);
+    return "Error de red: No se pudo conectar con el Oráculo.";
   }
 };
