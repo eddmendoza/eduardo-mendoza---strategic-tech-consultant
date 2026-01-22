@@ -2,7 +2,9 @@ import { GoogleGenAI } from "@google/genai";
 
 const getClient = () => {
     // Ideally validation happens earlier, but ensuring we don't crash if env is missing
-    const apiKey = process.env.API_KEY || ''; 
+    // const apiKey = process.env.API_KEY || ''; Este era el original
+    // Por esto (si usas Vite):
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     return new GoogleGenAI({ apiKey });
 }
 
