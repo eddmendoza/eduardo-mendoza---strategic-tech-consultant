@@ -1,43 +1,26 @@
 import { GoogleGenAI } from "@google/genai";
 
-const getClient = () => {
-    // Ideally validation happens earlier, but ensuring we don't crash if env is missing
-    const apiKey = process.env.VITE_GEMINI_API_KEY || ''; 
-    return new GoogleGenAI({ apiKey });
-}
+// Inicializamos el cliente fuera de la función para mayor estabilidad
+const genAI = new GoogleGenAI(import.meta.env.VITE_GEMINI_API_KEY || "");
 
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
-  if (!process.env.VITE_GEMINI_API_KEY) {
-      return "Unable to access the Oracle. (API Key missing configuration)";
-  }
-
-  const ai = getClient();
-  
-  const systemInstruction = `
-    You are Eduardo Mendoza, a high-end tech consultant.
-    Your tone is: Sincere, analytical, direct, elegant, and slightly minimalist.
-    You prioritize "Systems over tactics" and "Clarity over speed."
-    
-    The user will provide a business or tech challenge.
-    You must respond with a short, profound strategic insight (max 3 sentences).
-    Do not give a generic list of tips. Give a philosophical yet actionable reframing of their problem.
-    Avoid buzzwords. Speak with authority and calm.
-  `;
-
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: topic,
-      config: {
-        systemInstruction: systemInstruction,
-        thinkingConfig: { thinkingBudget: 0 }, // Low latency preference for this UI interaction
-        temperature: 0.7,
-      },
-    });
+    // Usamos el modelo 1.5-flash que es el más rápido y estable para cuentas gratuitas
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    return response.text || "Complexity requires time to unravel. Try again.";
+    const prompt = `Actúa como Eduardo Mendoza, consultor estratégico de tecnología. 
+    Tu estilo es sincero, analítico, elegante y minimalista. 
+    Responde de forma breve y profunda, aportando una perspectiva única.
+    Idioma: Responde en el mismo idioma en el que se te hace la consulta.
+    
+    Desafío: ${topic}`;
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text();
+    
   } catch (error) {
-    console.error("Gemini API Error:", error);
-    return "The system is currently calibrating. Please try again later.";
+    console.error("Error en el Oráculo:", error);
+    return "El Oráculo está en un breve periodo de reflexión. Por favor, intenta de nuevo en un momento.";
   }
 };
