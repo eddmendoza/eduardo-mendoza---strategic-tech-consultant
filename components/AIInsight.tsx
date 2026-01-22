@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown'; // <--- ESTA ES VITAL
 import { SparklesIcon, ArrowRightIcon } from './Icons';
 import { SectionId } from '../types';
 import { generateStrategicInsight } from '../services/geminiService';
@@ -66,10 +67,11 @@ const AIInsight: React.FC = () => {
         </form>
 
         {insight && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="mt-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-slate-800/50 p-8 rounded-sm border-l-2 border-white max-w-2xl mx-auto text-left">
-              {/* Usamos ReactMarkdown para procesar las negritas y párrafos */}
-              <div className="prose prose-invert prose-slate font-serif italic leading-relaxed text-slate-200">
+              <div className="prose prose-invert prose-slate max-w-none font-serif italic leading-relaxed text-slate-200
+                prose-p:mb-4 prose-p:last:mb-0
+                prose-strong:text-white prose-strong:font-bold">
                 <ReactMarkdown>{insight}</ReactMarkdown>
               </div>
             </div>
