@@ -1,26 +1,31 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Inicializamos el cliente fuera de la función para mayor estabilidad
-const genAI = new GoogleGenAI(import.meta.env.VITE_GEMINI_API_KEY || "");
-
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
+  // 1. Obtenemos la llave JUSTO cuando se necesita
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+  if (!apiKey) {
+    console.error("Variable VITE_GEMINI_API_KEY no encontrada");
+    return "Configuración pendiente: La llave del Oráculo no está disponible.";
+  }
+
   try {
-    // Usamos el modelo 1.5-flash que es el más rápido y estable para cuentas gratuitas
+    // 2. Inicializamos el cliente DENTRO de la función
+    // Esto evita que el error "An API Key must be set" bloquee el sitio al cargar
+    const genAI = new GoogleGenAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Actúa como Eduardo Mendoza, consultor estratégico de tecnología. 
-    Tu estilo es sincero, analítico, elegante y minimalista. 
-    Responde de forma breve y profunda, aportando una perspectiva única.
-    Idioma: Responde en el mismo idioma en el que se te hace la consulta.
-    
+    const prompt = `Actúa como Eduardo Mendoza, consultor estratégico. 
+    Analiza y responde de forma elegante y breve. 
+    Idioma: Mismo que el usuario.
     Desafío: ${topic}`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
     return response.text();
     
-  } catch (error) {
-    console.error("Error en el Oráculo:", error);
-    return "El Oráculo está en un breve periodo de reflexión. Por favor, intenta de nuevo en un momento.";
+  } catch (error: any) {
+    console.error("Error del Oráculo:", error);
+    return "El Oráculo está meditando. Intenta de nuevo en un momento.";
   }
 };
