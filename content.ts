@@ -393,7 +393,7 @@ Those treating AI as infrastructure are not just saving time—they are pulling 
       readArticle: "Leer Artículo",
       items: [
         {
-          id: 'ai-exposed-2026',
+          id: 'ia-cimientos-marketing-2026',
           title: '2025: El año en que la IA expuso los cimientos',
           excerpt: 'La IA dejó de ser una función para convertirse en infraestructura, revelando la salud estructural del marketing.',
           date: '16 Dic, 2025',
@@ -568,10 +568,10 @@ Ese es el estándar que llevo conmigo para el año que comienza.
           `
         },
         {
-          id: 'ia-ventaja-competitive-marketing-2025',
+          id: 'ia-ventaja-competitiva-marketing-2025',
           title: 'De juguete a ventaja competitiva: El nuevo marketing con IA',
           excerpt: 'La brecha entre experimentar con IA e integrarla estratégicamente se está cerrando para algunos y abriendo para otros. Un marco para pasar de simples prompts a capacidades core.',
-          date: '25 Nov, 2021',
+          date: '25 Nov, 2025',
           readTime: '3 min lectura',
           image: '/postimgs/leadetship_outlook_2025.png',
           fullContent:`
