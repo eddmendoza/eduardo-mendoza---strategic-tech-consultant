@@ -393,7 +393,7 @@ Those treating AI as infrastructure are not just saving time—they are pulling 
       readArticle: "Leer Artículo",
       items: [
         {
-          id: 'ia-cimientos-marketing-2026',
+          id: 'ai-exposed-2026',
           title: '2025: El año en que la IA expuso los cimientos',
           excerpt: 'La IA dejó de ser una función para convertirse en infraestructura, revelando la salud estructural del marketing.',
           date: '16 Dic, 2025',
