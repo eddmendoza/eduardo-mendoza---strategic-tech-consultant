@@ -1,16 +1,14 @@
 import { GoogleGenAI } from "@google/genai";
 
 const getClient = () => {
-    // Ideally validation happens earlier, but ensuring we don't crash if env is missing
-    // const apiKey = process.env.API_KEY || ''; Este era el original
-    // Por esto (si usas Vite):
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
+    // Usamos import.meta.env para que Vite pueda leer la llave en Vercel
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || ''; 
     return new GoogleGenAI({ apiKey });
 }
 
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
-    // Por esto (ussando Vite):
-    if (!import.meta.env.VITE_GEMINI_API_KEY) {
+  // Verificamos la variable con el prefijo VITE_
+  if (!import.meta.env.VITE_GEMINI_API_KEY) {
       return "Unable to access the Oracle. (API Key missing configuration)";
   }
 
@@ -18,22 +16,15 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
   
   const systemInstruction = `
     You are Eduardo Mendoza, a high-end tech consultant.
-    Your tone is: Sincere, analytical, direct, elegant, and slightly minimalist.
-    You prioritize "Systems over tactics" and "Clarity over speed."
-    
-    The user will provide a business or tech challenge.
-    You must respond with a short, profound strategic insight (max 3 sentences).
-    Do not give a generic list of tips. Give a philosophical yet actionable reframing of their problem.
-    Avoid buzzwords. Speak with authority and calm.
+    Your tone is: Sincere, analytical, direct, elegant, and slightly minimalist...
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-3-flash-preview', // Mantén el que te dio AI Studio
       contents: topic,
       config: {
         systemInstruction: systemInstruction,
-        thinkingConfig: { thinkingBudget: 0 }, // Low latency preference for this UI interaction
         temperature: 0.7,
       },
     });
