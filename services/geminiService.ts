@@ -26,6 +26,6 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
     
   } catch (error: any) {
     console.error("Error del Oráculo:", error);
-    return "El Oráculo está meditando. Intenta de nuevo en un momento.";
+    return "El Oráculo está en una sesión de consultoría privada. Por favor, deja tu mensaje en la sección de contacto para agendar una sesión directa";
   }
 };
