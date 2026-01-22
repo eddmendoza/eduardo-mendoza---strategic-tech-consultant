@@ -21,17 +21,19 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview', // Mantén el que te dio AI Studio
+      // model: 'gemini-3-flash-preview', // Mantén el que te dio AI Studio
+      model: 'gemini-1.5-flash', // Cambia a este para mayor estabilidad y menos errores 503
       contents: topic,
       config: {
         systemInstruction: systemInstruction,
-        temperature: 0.7,
+        temperature: 0.5,
       },
     });
 
     return response.text || "Complexity requires time to unravel. Try again.";
   } catch (error) {
-    console.error("Gemini API Error:", error);
-    return "The system is currently calibrating. Please try again later.";
+        console.error("Gemini API Error:", error);
+        // Un mensaje más claro para el usuario
+        return "The Oracle is currently overwhelmed by high demand. Please wait a moment and try again.";
   }
 };
