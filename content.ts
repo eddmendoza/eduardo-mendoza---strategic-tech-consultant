@@ -482,7 +482,7 @@ La IA no reemplazará el liderazgo de marketing. Pero amplificará, implacableme
           `
         },
         {
-          id: 'decisiones-estrategicas-2025',
+          id: 'strategic-ai-marketing-2025',
           title: 'El año en que dejé de optimizar y empecé a decidir',
           excerpt: 'La verdadera sofisticación no se encuentra en lo que construyes, sino en lo que eliges conscientemente no construir. Una reflexión sobre el cambio del volumen técnico al juicio estratégico.',
           date: '30 Dic, 2025',
@@ -568,7 +568,7 @@ Ese es el estándar que llevo conmigo para el año que comienza.
           `
         },
         {
-          id: 'ia-ventaja-competitiva-marketing-2025',
+          id: 'ai-competitive-edge-marketing-2025',
           title: 'De juguete a ventaja competitiva: El nuevo marketing con IA',
           excerpt: 'La brecha entre experimentar con IA e integrarla estratégicamente se está cerrando para algunos y abriendo para otros. Un marco para pasar de simples prompts a capacidades core.',
           date: '25 Nov, 2025',
