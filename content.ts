@@ -573,7 +573,7 @@ Ese es el estándar que llevo conmigo para el año que comienza.
           excerpt: 'La brecha entre experimentar con IA e integrarla estratégicamente se está cerrando para algunos y abriendo para otros. Un marco para pasar de simples prompts a capacidades core.',
           date: '25 Nov, 2025',
           readTime: '3 min lectura',
-          image: '/postimgs/leadetship_outlook_2025.png',
+          image: '/postimgs/ia-curve_202511.png',
           fullContent:`
 Durante la mayor parte de los últimos dos años, las empresas trataron la IA como un juguete: algo para probar, jugar y explorar. Sin embargo, para 2025, la brecha entre las empresas que simplemente experimentan y aquellas que la integran estratégicamente se ha vuelto imposible de ignorar.
 
