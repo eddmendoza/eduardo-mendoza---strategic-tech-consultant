@@ -14,8 +14,8 @@ const Footer: React.FC = () => {
           © {new Date().getFullYear()} Eduardo Mendoza. {t.footer.copyright}
         </div>
         <div className="flex gap-6">
-          <a href="https://www.linkedin.com/in/eddmendoza/" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">LinkedIn</a>
-          <a href="https://x.com/eddmendoza" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Twitter</a>
+          <a href="https://www.linkedin.com/in/eddmendoza/" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">LinkedIn</a>
+          <a href="https://x.com/eddmendoza" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Twitter</a>
         </div>
       </div>
     </footer>
