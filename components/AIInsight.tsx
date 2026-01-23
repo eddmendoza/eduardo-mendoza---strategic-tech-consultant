@@ -1,85 +1,60 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown'; // <--- ESTA ES VITAL
-import { SparklesIcon, ArrowRightIcon } from './Icons';
-import { SectionId } from '../types';
 import { generateStrategicInsight } from '../services/geminiService';
-import { useLanguage } from '../contexts/LanguageContext';
 
-const AIInsight: React.FC = () => {
-  const [input, setInput] = useState('');
+const AIInsights: React.FC = () => {
+  const [topic, setTopic] = useState('');
   const [insight, setInsight] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { t, language } = useLanguage();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleConsult = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    setLoading(true);
-    setInsight('');
+  const handleAnalyze = async () => {
+    if (!topic.trim()) return;
     
-    // Prefix the prompt with the language so Gemini answers in the correct language
-    const prompt = language === 'es' 
-        ? `(Responde en Español profesional de México) ${input}` 
-        : input;
-
+    setIsLoading(true);
+    setInsight(''); // Limpiamos el insight anterior
+    
     try {
-      const result = await generateStrategicInsight(prompt);
+      const result = await generateStrategicInsight(topic);
       setInsight(result);
-    } catch (err) {
-      setInsight(t.aiInsight.error);
+    } catch (error) {
+      setInsight("El Oráculo está recalibrando sus sistemas. Por favor, intenta de nuevo en un momento.");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
   return (
-    <section id={SectionId.AI_DEMO} className="py-24 bg-slate-900 text-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="mb-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-medium uppercase tracking-widest text-slate-300 mb-4">
-                <SparklesIcon className="w-3 h-3" /> {t.aiInsight.label}
-            </span>
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
-            {t.aiInsight.heading}
-          </h2>
-          <p className="text-slate-400 font-light max-w-xl mx-auto">
-            {t.aiInsight.description}
+    <div className="max-w-2xl mx-auto p-6 bg-transparent border border-gray-800 rounded-lg shadow-sm">
+      <h2 className="text-xl font-light mb-4 text-white tracking-widest uppercase">El Oráculo</h2>
+      <p className="text-gray-400 mb-6 text-sm italic">
+        Plantea un desafío tecnológico o estratégico para recibir una perspectiva de Eduardo Mendoza.
+      </p>
+      
+      <div className="space-y-4">
+        <textarea
+          className="w-full p-4 bg-black/20 border border-gray-700 rounded-md text-gray-200 focus:border-white focus:ring-0 transition-colors min-h-[100px] outline-none"
+          placeholder="Ej: El impacto de la IA generativa en la ciberseguridad industrial..."
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+        />
+        
+        <button
+          onClick={handleAnalyze}
+          disabled={isLoading || !topic.trim()}
+          className="w-full py-3 px-6 bg-white text-black font-medium hover:bg-gray-200 disabled:bg-gray-600 disabled:cursor-not-allowed transition-all uppercase tracking-tighter"
+        >
+          {isLoading ? 'Analizando...' : 'Consultar Oráculo'}
+        </button>
+      </div>
+
+      {insight && (
+        <div className="mt-8 p-4 border-l-2 border-white animate-in fade-in slide-in-from-bottom-2 duration-700">
+          <p className="text-gray-300 leading-relaxed font-light italic">
+            {insight}
           </p>
         </div>
-
-        <form onSubmit={handleConsult} className="relative max-w-lg mx-auto mb-12">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder={t.aiInsight.placeholder}
-            className="w-full bg-transparent border-b border-slate-600 py-4 text-lg md:text-xl text-white placeholder-slate-600 focus:outline-none focus:border-white transition-colors text-center"
-          />
-          <button
-            type="submit"
-            disabled={loading || !input}
-            className="mt-8 flex items-center justify-center gap-2 mx-auto text-sm uppercase tracking-widest hover:text-slate-300 disabled:opacity-50 transition-colors"
-          >
-            {loading ? t.aiInsight.buttonLoading : t.aiInsight.buttonDefault} 
-            {!loading && <ArrowRightIcon className="w-4 h-4" />}
-          </button>
-        </form>
-
-        {insight && (
-          <div className="mt-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-slate-800/50 p-8 rounded-sm border-l-2 border-white max-w-2xl mx-auto text-left">
-              <div className="prose prose-invert prose-slate max-w-none font-serif italic leading-relaxed text-slate-200
-                prose-p:mb-4 prose-p:last:mb-0
-                prose-strong:text-white prose-strong:font-bold">
-                <ReactMarkdown>{insight}</ReactMarkdown>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
+      )}
+    </div>
   );
 };
 
-export default AIInsight;
+export default AIInsights;
