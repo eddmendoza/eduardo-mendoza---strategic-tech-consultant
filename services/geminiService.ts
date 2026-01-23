@@ -1,7 +1,5 @@
 export const generateStrategicInsight = async (topic: string): Promise<string> => {
   try {
-    // Ya no usamos import.meta.env aquí porque la llave vive en el servidor
-    // Llamamos a nuestra propia API interna de Vercel
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
@@ -10,17 +8,15 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
       body: JSON.stringify({ topic }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error('Error en la comunicación con el servidor');
+      return data.error || "Error en la consulta";
     }
 
-    const data = await response.json();
-    
-    // Devolvemos el texto que nos mandó nuestra función en /api/chat.ts
-    return data.text || "El Oráculo no pudo procesar la respuesta.";
-
+    return data.text;
   } catch (error) {
-    console.error("Error en el servicio frontal:", error);
-    return "Conexión interrumpida con el Oráculo. Intenta de nuevo.";
+    console.error("Error en frontend:", error);
+    return "No se pudo conectar con el servidor del Oráculo.";
   }
 };
