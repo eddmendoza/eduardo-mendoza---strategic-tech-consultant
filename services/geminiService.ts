@@ -2,21 +2,14 @@ export const generateStrategicInsight = async (topic: string): Promise<string> =
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ topic }),
     });
 
     const data = await response.json();
-
-    if (!response.ok) {
-      return data.error || "Error en la consulta";
-    }
-
-    return data.text;
-  } catch (error) {
-    console.error("Error en frontend:", error);
-    return "No se pudo conectar con el servidor del Oráculo.";
+    // Directamente devolvemos lo que diga el servidor
+    return data.text || "Error inesperado en formato de respuesta.";
+  } catch (error: any) {
+    return "Error de red: No se pudo contactar con /api/chat";
   }
 };
