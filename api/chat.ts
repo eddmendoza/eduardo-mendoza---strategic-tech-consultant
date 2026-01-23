@@ -33,9 +33,9 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ text });
   } catch (error: any) {
     console.error("Error crítico:", error);
+    // Cambiamos esta línea para que nos diga EL ERROR REAL en el frontend
     return res.status(500).json({ 
-      error: "Error en el Oráculo", 
-      details: error.message 
+      text: "Error del Oráculo: " + (error.message || "Falla de conexión") 
     });
   }
 }
