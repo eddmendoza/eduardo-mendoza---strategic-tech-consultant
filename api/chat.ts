@@ -1,7 +1,7 @@
-import * as GoogleGenAIModule from "@google/genai";
+const { GoogleGenAI } = require("@google/genai");
 
 export default async function handler(req: any, res: any) {
-  // Cabeceras CORS
+  // Cabeceras CORS esenciales
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -14,29 +14,27 @@ export default async function handler(req: any, res: any) {
     const { topic } = req.body;
     const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
-    // --- LÓGICA DE DETECCIÓN DE LIBRERÍA ---
-    // A veces Vercel importa la clase dentro de .GoogleGenAI y otras veces es la base
-    const AnyModule = GoogleGenAIModule as any;
-    const ActualGoogleGenAI = AnyModule.GoogleGenAI || AnyModule;
-    
-    if (typeof ActualGoogleGenAI !== 'function') {
-        throw new Error("No se pudo inicializar la clase de Google. Tipo: " + typeof ActualGoogleGenAI);
+    if (!apiKey) {
+      return res.status(200).json({ text: "DETALLE: No se encontró la API Key." });
     }
 
-    const genAI = new ActualGoogleGenAI(apiKey);
+    // Inicialización directa
+    const genAI = new GoogleGenAI(apiKey);
+    
+    // Aquí está el cambio: forzamos el acceso al modelo
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Eres Eduardo Mendoza, un consultor estratégico de tecnología. Tu tono es sofisticado, analítico y breve. Responde a: ${topic}`;
-
-    const result = await model.generateContent(prompt);
+    const result = await model.generateContent(`Actúa como Eduardo Mendoza, consultor estratégico. Responde brevemente a: ${topic}`);
     const response = await result.response;
-    
-    return res.status(200).json({ text: response.text() });
+    const text = response.text();
+
+    return res.status(200).json({ text });
 
   } catch (error: any) {
     console.error("DEBUG:", error);
+    // Este mensaje nos dirá si es un error de Google o de nuestra lógica
     return res.status(200).json({ 
-      text: "DETALLE TÉCNICO: " + error.message 
+      text: "ERROR FINAL: " + error.message 
     });
   }
 }
