@@ -4,10 +4,10 @@ export default async function handler(req: any, res: any) {
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
     const { topic } = body;
-    const apiKey = process.env.VITE_GEMINI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
     if (!apiKey) {
-      return res.status(200).json({ text: "DEBUG: No hay API Key en Vercel." });
+      return res.status(200).json({ text: "DETALLE: El servidor no encuentra la variable de entorno." });
     }
 
     const genAI = new (GoogleGenAI as any)(apiKey);
