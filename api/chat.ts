@@ -1,44 +1,41 @@
-// Usamos una importación más robusta para Node.js
-const { GoogleGenAI } = require("@google/genai");
+import { GoogleGenAI } from "@google/genai";
 
 export default async function handler(req: any, res: any) {
-  // Cabeceras de seguridad y CORS
+  // 1. Cabeceras de CORS obligatorias para evitar "Error de red"
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  // Manejo de pre-flight (OPTIONS)
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
+    return res.status(405).json({ text: "Método no permitido" });
   }
 
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const { topic } = body;
-    
-    // Intentamos ambas variables por seguridad
+    const { topic } = req.body;
     const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 
     if (!apiKey) {
-      return res.status(200).json({ text: "DETALLE: No se encontró la API Key en el servidor." });
+      return res.status(200).json({ text: "DETALLE: Falta la API Key en el panel de Vercel." });
     }
 
-    // Inicialización estándar
     const genAI = new GoogleGenAI(apiKey);
-    
-    // Accedemos al modelo
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Actúa como Eduardo Mendoza, consultor estratégico. Responde de forma elegante y breve a: ${topic}`;
-
-    const result = await model.generateContent(prompt);
+    const result = await model.generateContent(`Actúa como Eduardo Mendoza, consultor estratégico. Responde brevemente a: ${topic}`);
     const response = await result.response;
-    const text = response.text();
-
-    return res.status(200).json({ text });
+    
+    return res.status(200).json({ text: response.text() });
   } catch (error: any) {
-    console.error("Error detallado:", error);
-    return res.status(200).json({ 
-      text: "DETALLE GOOGLE: " + (error.message || "Error al procesar el modelo") 
-    });
+    return res.status(200).json({ text: "DETALLE GOOGLE: " + (error.message || "Error interno") });
   }
 }
