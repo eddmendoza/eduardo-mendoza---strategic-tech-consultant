@@ -4,7 +4,8 @@ import Hero from './components/Hero';
 import Pillars from './components/Pillars';
 import About from './components/About';
 import Writings from './components/Writings';
-import AIInsight from './components/AIInsight';
+// 1. Reemplazamos el import
+import N8NLib from './components/N8NLib'; 
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
@@ -28,7 +29,8 @@ const AppContent: React.FC = () => {
           <Pillars />
           <About />
           <Writings onPostClick={(id) => setActivePostId(id)} />
-          <AIInsight />
+          {/* 2. Reemplazamos el componente aquí */}
+          <N8NLib /> 
           <Contact />
         </>
       ) : (
@@ -42,7 +44,6 @@ const AppContent: React.FC = () => {
             </button>
 
             {(() => {
-              // Buscamos el post dinámicamente en el content.ts
               const post = t.writings.items.find((p: any) => p.id === activePostId);
               if (!post) return <p>Post not found.</p>;
 
@@ -59,7 +60,6 @@ const AppContent: React.FC = () => {
                     </h1>
                   </header>
 
-                  {/* Imagen con "corte" automático a formato horizontal */}
                   {post.image && (
                     <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-2xl mb-12 shadow-lg">
                       <img 
@@ -70,7 +70,6 @@ const AppContent: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Cuerpo del artículo con formato premium y bullets forzados */}
                   <div className="prose prose-slate lg:prose-xl max-w-none 
                     prose-p:mb-8 
                     prose-headings:mt-16 prose-headings:mb-6
@@ -101,7 +100,6 @@ const AppContent: React.FC = () => {
   );
 };
 
-// Envolvemos AppContent en el Provider para poder usar useLanguage() dentro
 const App: React.FC = () => {
   return (
     <LanguageProvider>
